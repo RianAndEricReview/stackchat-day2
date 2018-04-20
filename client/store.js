@@ -92,7 +92,7 @@ export function fetchChannels() {
   }
 }
 
-export function postChannel(channel) {
+export function postChannel(channel, historyObject) {
 
   return function thunk(dispatch) {
     return axios.post('/api/channels', channel)
@@ -101,6 +101,7 @@ export function postChannel(channel) {
         const action = getNewChannel(newChannel);
         dispatch(action);
         socket.emit('new-channel', newChannel);
+        historyObject.push(`/channels/${newChannel.id}`)
       });
   }
 }

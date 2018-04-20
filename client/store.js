@@ -21,6 +21,8 @@ const GET_MESSAGE = 'GET_MESSAGE';
 const GET_MESSAGES = 'GET_MESSAGES';
 const WRITE_MESSAGE = 'WRITE_MESSAGE';
 const GET_CHANNELS = 'GET_CHANNELS'
+const WRITE_CHANNEL_NAME = 'WRITE_CHANNEL_NAME'
+const GET_NEW_CHANNEL = 'GET_NEW_CHANNEL'
 
 // ACTION CREATORS
 
@@ -45,6 +47,10 @@ export function writeMessage(content) {
 }
 
 export const getChannels = (channels) => ({ type: GET_CHANNELS, channels })
+
+export const writeChannelName = (input) => ({ type: WRITE_CHANNEL_NAME, input })
+
+export const getNewChannel = (channel) => ({ type: GET_NEW_CHANNEL, channel })
 
 // THUNK CREATORS
 
@@ -127,6 +133,13 @@ function reducer(state = initialState, action) {
 
     case GET_CHANNELS:
       return { ...state, channels: action.channels }
+
+    case WRITE_CHANNEL_NAME:
+      return { ...state, newChannelEntry: action.input }
+
+    case GET_NEW_CHANNEL:
+      return { ...state, channels: [...state.channels, action.channel]}
+
 
     default:
       return state;

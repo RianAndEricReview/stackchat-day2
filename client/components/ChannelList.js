@@ -4,10 +4,6 @@ import { connect } from 'react-redux'
 
 // These values are all hardcoded...for now
 // Soon, we'll fetch them from the server!
-const RANDOM_CHANNEL = '/channels/1';
-const GENERAL_CHANNEL = '/channels/2';
-const DOGS_CHANNEL = '/channels/3';
-const LUNCH_CHANNEL = '/channels/4';
 
 const ChannelList = (props) => {
   const { messages, channels } = props;

@@ -13,7 +13,7 @@ const ChannelList = (props) => {
         channels.map(channel => (
           <li key={channel.id} >
             <NavLink to={`/channels/${channel.id}`} activeClassName="active">
-              <span># really_random</span>
+              <span>{channel.name}</span>
               <span className="badge">{messages.filter(message => message.channelId === 1).length}</span>
             </NavLink>
           </li>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { writeChannelName } from '../store'
+import { writeChannelName, postChannel } from '../store'
 
 const NewChannelEntry = (props) => {
   return (
-    <form>
+    <form onSubmit={props.submitChannel}>
       <div className="form-group">
         <label htmlFor="name">Create a Channel</label>
         <input className="form-control" type="text" name="channelName" placeholder="Enter channel name" value={props.newChannelEntry} onChange={props.handleChange} />
@@ -25,6 +25,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleChange: (event) => {
       dispatch(writeChannelName(event.target.value))
+    },
+
+    submitChannel: (event) => {
+      event.preventDefault()
+      dispatch(postChannel({ name: event.target.channelName.value }))
+      dispatch(writeChannelName(''))
     }
   }
 }

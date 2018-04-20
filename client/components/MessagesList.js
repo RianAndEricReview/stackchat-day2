@@ -19,6 +19,7 @@ export default class Messages extends Component {
   }
 
   render () {
+    console.log('SGATE', this.state)
 
     const channelId = Number(this.props.match.params.channelId); // because it's a string "1", not a number!
     const messages = this.state.messages;

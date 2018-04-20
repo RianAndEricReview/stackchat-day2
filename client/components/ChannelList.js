@@ -30,6 +30,7 @@ const ChannelList = (props) => {
 
 /** Write your `connect` component below! **/
 const mapStateToProps = (state) => {
+  console.log('state', state)
   return { channels: state.channels, messages: state.messages }
 }
 

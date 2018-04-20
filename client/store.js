@@ -11,7 +11,8 @@ const initialState = {
   messages: [],
   name: 'Reggie',
   newMessageEntry: '',
-  channels: []
+  channels: [],
+  newChannelEntry: ''
 };
 
 // ACTION TYPES
